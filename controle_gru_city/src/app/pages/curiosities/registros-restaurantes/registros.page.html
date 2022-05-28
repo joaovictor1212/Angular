@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title color="primary">Restaurantes</ion-title>
+  </ion-toolbar>
+  <ion-item>
+    <ion-icon name="log-in-outline" (click)="logout()" slot="end" color="black"></ion-icon>
+  </ion-item>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let curiosidade of listaCuriosidades">
+      <ion-label>
+        <h2>{{curiosidade.titulo}}</h2>
+        <ion-text id="conteudo"> {{curiosidade.descricao}} </ion-text>
+        <br /><br />
+        <div *ngIf="curiosidade.endereco" id="link-div">
+          <iframe [src]="linkUrl(curiosidade.endereco)" width="100%"></iframe>
+        </div>
+      </ion-label>
+
+      <ion-icon slot="end" name="create-outline" color="primary" (click)="edita(curiosidade)" ></ion-icon>
+      <ion-icon slot="end" name="trash" color="danger" (click)="remove(curiosidade)">
+      </ion-icon>
+
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-row>
+    <ion-col id="icones">
+      <ion-icon
+        name="bicycle-outline"
+        class="register"
+        alt="Lazer"
+        [routerLink]="['/registros-lazer']"
+        color="primary"
+      ></ion-icon>
+      <ion-icon
+        name="videocam-outline"
+        class="register"
+        alt="Cultura"
+        [routerLink]="['/registros-cultura']"
+        color="primary"
+      ></ion-icon>
+      <ion-icon
+        name="return-up-back-outline"
+        class="register"
+        alt="Voltar"
+        [routerLink]="['/cadastro']"
+        color="primary"
+      ></ion-icon>
+    </ion-col>
+  </ion-row>
+</ion-footer>

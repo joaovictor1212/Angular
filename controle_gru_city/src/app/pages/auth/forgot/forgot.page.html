@@ -1,0 +1,33 @@
+<ion-content>
+
+  <!-- <topo-login title="Esqueci minha senha"></topo-login>   -->
+
+  <div id="logo-div">
+    <ion-text color="primary">
+      <p>{{title ? title: ''}}</p>
+      <img src="../../../../../assets/icon/logogru.jpg" alt="">
+    </ion-text>
+  </div>
+
+  <br/>
+  <br/>
+
+  <form [formGroup]="loginForm" (submit)="recoverPass()">
+    <ion-item>
+      <ion-icon name="mail" slot="start" color="if"></ion-icon>
+      <ion-input formControlName="email" type="mail" placeholder="E-mail" autfocus="true"></ion-input>
+    </ion-item>
+    <br>
+    <ion-button [disabled]="loginForm.invalid"  type="submit" expand="block"color="primary" fill="clear">Enviar</ion-button>
+</form><br/>
+
+</ion-content>
+
+
+<ion-footer>
+  <ion-row>
+    <ion-col>
+      <ion-button [routerLink]="['/auth']" fill="clear" color="medium">Voltar</ion-button>
+    </ion-col>
+  </ion-row>
+</ion-footer>

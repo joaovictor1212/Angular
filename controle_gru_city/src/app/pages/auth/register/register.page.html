@@ -1,0 +1,52 @@
+<ion-content class="ion-padding">
+
+  <!-- <topo-login title="Cadastrar usuário"></topo-login> -->
+
+  <div id="logo-div">
+    <ion-text color="primary">
+      <p>{{title ? title: ''}}</p>
+      <img src="../../../../../assets/icon/logogru.jpg" alt="">
+    </ion-text>
+  </div>
+
+  <br/>
+  <br/>
+
+  <form [formGroup]="loginForm" (submit)="createUser()">
+    <ion-item>
+      <ion-icon name="person" color="primary" slot="start"></ion-icon>
+      <ion-input formControlName="nome" type="text" placeholder="Nome" autfocus="true"></ion-input>
+    </ion-item><br>
+
+    <ion-item>
+      <ion-icon name="person" color="primary" slot="start"></ion-icon>
+      <ion-input formControlName="snome" type="text" placeholder="Sobrenome" autfocus="true"></ion-input>
+    </ion-item><br>
+
+    <ion-item>
+      <ion-icon name="mail" slot="start" color="primary"></ion-icon>
+      <ion-input formControlName="email" type="mail" placeholder="E-mail" autfocus="true"></ion-input>
+    </ion-item><br>
+
+    <ion-item>
+      <ion-icon name="lock-closed" slot="start" color="primary"></ion-icon>
+      <ion-input formControlName="password" type="password" placeholder="Senha"></ion-input>
+    </ion-item><br>
+
+    <ion-item>
+      <ion-icon name="lock-closed" slot="start" color="primary"></ion-icon>
+      <ion-input formControlName="confirm_pass" type="password" placeholder="Confirmar"></ion-input>
+    </ion-item><br>
+
+    <ion-button [disabled]="loginForm.invalid"  type="submit" expand="block"color="primary" fill="clear">Enviar</ion-button>
+</form><br/>
+
+</ion-content>
+
+<ion-footer>
+  <ion-row>
+    <ion-col>
+      <ion-button [routerLink]="['/auth']" fill="clear" color="medium">Voltar</ion-button>
+    </ion-col>
+  </ion-row>
+</ion-footer>
